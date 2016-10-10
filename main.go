@@ -26,20 +26,20 @@ func main() {
 	s.ProcessFailedResponse("vpc.create.error", "vpcs.create.error")
 	s.ProcessFailedResponse("vpc.delete.error", "vpcs.delete.error")
 
+	// Configure ELBs Hooks
+	s.ProcessRequest("elbs.create", "elb.create")
+	s.ProcessRequest("elbs.delete", "elb.delete")
+	s.ProcessRequest("elbs.update", "elb.update")
+
+	s.ProcessSuccessResponse("elb.create.done", "elb.create", "elbs.create.done")
+	s.ProcessSuccessResponse("elb.delete.done", "elb.delete", "elbs.delete.done")
+	s.ProcessSuccessResponse("elb.update.done", "elb.update", "elbs.update.done")
+
+	s.ProcessFailedResponse("elb.create.error", "elbs.create.error")
+	s.ProcessFailedResponse("elb.delete.error", "elbs.delete.error")
+	s.ProcessFailedResponse("elb.update.error", "elbs.update.error")
+
 	/*
-		// Configure ELBs Hooks
-		s.ProcessRequest("elbs.create", "elb.create")
-		s.ProcessRequest("elbs.delete", "elb.delete")
-		s.ProcessRequest("elbs.update", "elb.update")
-
-		s.ProcessSuccessResponse("elb.create.done", "elb.create", "elbs.create.done")
-		s.ProcessSuccessResponse("elb.delete.done", "elb.delete", "elbs.delete.done")
-		s.ProcessSuccessResponse("elb.update.done", "elb.update", "elbs.update.done")
-
-		s.ProcessFailedResponse("elb.create.error", "elbs.create.error")
-		s.ProcessFailedResponse("elb.delete.error", "elbs.delete.error")
-		s.ProcessFailedResponse("elb.update.error", "elbs.update.error")
-
 		// Configure EBSs Hooks
 		s.ProcessRequest("ebss.create", "ebs.create")
 		s.ProcessRequest("ebss.delete", "ebs.delete")
