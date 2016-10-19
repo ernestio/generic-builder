@@ -39,6 +39,18 @@ func main() {
 	s.ProcessFailedResponse("elb.delete.error", "elbs.delete.error")
 	s.ProcessFailedResponse("elb.update.error", "elbs.update.error")
 
+	// Configure S3 Hooks
+	s.ProcessRequest("s3s.create", "s3.create")
+	s.ProcessRequest("s3s.delete", "s3.delete")
+	s.ProcessRequest("s3s.update", "s3.update")
+
+	s.ProcessSuccessResponse("s3.create.done", "s3.create", "s3s.create.done")
+	s.ProcessSuccessResponse("s3.delete.done", "s3.delete", "s3s.delete.done")
+	s.ProcessSuccessResponse("s3.update.done", "s3.update", "s3s.update.done")
+
+	s.ProcessFailedResponse("s3.create.error", "s3s.create.error")
+	s.ProcessFailedResponse("s3.delete.error", "s3s.delete.error")
+	s.ProcessFailedResponse("s3.update.error", "s3s.update.error")
 	/*
 		// Configure EBSs Hooks
 		s.ProcessRequest("ebss.create", "ebs.create")
@@ -52,19 +64,6 @@ func main() {
 		s.ProcessFailedResponse("ebs.create.error", "ebss.create.error")
 		s.ProcessFailedResponse("ebs.delete.error", "ebss.delete.error")
 		s.ProcessFailedResponse("ebs.update.error", "ebss.update.error")
-
-		// Configure S3 Hooks
-		s.ProcessRequest("s3s.create", "s3.create")
-		s.ProcessRequest("s3s.delete", "s3.delete")
-		s.ProcessRequest("s3s.update", "s3.update")
-
-		s.ProcessSuccessResponse("s3.create.done", "s3.create", "s3s.create.done")
-		s.ProcessSuccessResponse("s3.delete.done", "s3.delete", "s3s.delete.done")
-		s.ProcessSuccessResponse("s3.update.done", "s3.update", "s3s.update.done")
-
-		s.ProcessFailedResponse("s3.create.error", "s3s.create.error")
-		s.ProcessFailedResponse("s3.delete.error", "s3s.delete.error")
-		s.ProcessFailedResponse("s3.update.error", "s3s.update.error")
 
 		// Configure RDSs Hooks
 		s.ProcessRequest("rdss.create", "rds.create")
