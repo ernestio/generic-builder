@@ -36,6 +36,16 @@ func main() {
 	s.ProcessFailedResponse("network.create.error", "networks.create.error")
 	s.ProcessFailedResponse("network.delete.error", "networks.delete.error")
 
+	// Configure Instance Hooks
+	s.ProcessRequest("instances.create", "instance.create")
+	s.ProcessRequest("instances.delete", "instance.delete")
+
+	s.ProcessSuccessResponse("instance.create.done", "instance.create", "instances.create.done")
+	s.ProcessSuccessResponse("instance.delete.done", "instance.delete", "instances.delete.done")
+
+	s.ProcessFailedResponse("instance.create.error", "instances.create.error")
+	s.ProcessFailedResponse("instance.delete.error", "instances.delete.error")
+
 	// Configure ELBs Hooks
 	s.ProcessRequest("elbs.create", "elb.create")
 	s.ProcessRequest("elbs.delete", "elb.delete")
