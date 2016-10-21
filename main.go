@@ -38,12 +38,15 @@ func main() {
 
 	// Configure Instance Hooks
 	s.ProcessRequest("instances.create", "instance.create")
+	s.ProcessRequest("instances.update", "instance.update")
 	s.ProcessRequest("instances.delete", "instance.delete")
 
 	s.ProcessSuccessResponse("instance.create.done", "instance.create", "instances.create.done")
+	s.ProcessSuccessResponse("instance.update.done", "instance.update", "instances.update.done")
 	s.ProcessSuccessResponse("instance.delete.done", "instance.delete", "instances.delete.done")
 
 	s.ProcessFailedResponse("instance.create.error", "instances.create.error")
+	s.ProcessFailedResponse("instance.update.error", "instances.update.error")
 	s.ProcessFailedResponse("instance.delete.error", "instances.delete.error")
 
 	// Configure ELBs Hooks
