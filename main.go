@@ -49,6 +49,19 @@ func main() {
 	s.ProcessFailedResponse("instance.update.error", "instances.update.error")
 	s.ProcessFailedResponse("instance.delete.error", "instances.delete.error")
 
+	// Configure Firewall Hooks
+	s.ProcessRequest("firewalls.create", "firewall.create")
+	s.ProcessRequest("firewalls.update", "firewall.update")
+	s.ProcessRequest("firewalls.delete", "firewall.delete")
+
+	s.ProcessSuccessResponse("firewall.create.done", "firewall.create", "firewalls.create.done")
+	s.ProcessSuccessResponse("firewall.update.done", "firewall.update", "firewalls.update.done")
+	s.ProcessSuccessResponse("firewall.delete.done", "firewall.delete", "firewalls.delete.done")
+
+	s.ProcessFailedResponse("firewall.create.error", "firewalls.create.error")
+	s.ProcessFailedResponse("firewall.update.error", "firewalls.update.error")
+	s.ProcessFailedResponse("firewall.delete.error", "firewalls.delete.error")
+
 	// Configure ELBs Hooks
 	s.ProcessRequest("elbs.create", "elb.create")
 	s.ProcessRequest("elbs.delete", "elb.delete")
