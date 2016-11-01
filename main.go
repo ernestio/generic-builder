@@ -62,6 +62,19 @@ func main() {
 	s.ProcessFailedResponse("firewall.update.error", "firewalls.update.error")
 	s.ProcessFailedResponse("firewall.delete.error", "firewalls.delete.error")
 
+	// Configure Nat Hooks
+	s.ProcessRequest("nats.create", "nat.create")
+	s.ProcessRequest("nats.update", "nat.update")
+	s.ProcessRequest("nats.delete", "nat.delete")
+
+	s.ProcessSuccessResponse("nat.create.done", "nat.create", "nats.create.done")
+	s.ProcessSuccessResponse("nat.update.done", "nat.update", "nats.update.done")
+	s.ProcessSuccessResponse("nat.delete.done", "nat.delete", "nats.delete.done")
+
+	s.ProcessFailedResponse("nat.create.error", "nats.create.error")
+	s.ProcessFailedResponse("nat.update.error", "nats.update.error")
+	s.ProcessFailedResponse("nat.delete.error", "nats.delete.error")
+
 	// Configure ELBs Hooks
 	s.ProcessRequest("elbs.create", "elb.create")
 	s.ProcessRequest("elbs.delete", "elb.delete")
