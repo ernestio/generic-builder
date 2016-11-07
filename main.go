@@ -100,33 +100,33 @@ func main() {
 	s.ProcessFailedResponse("s3.create.error", "s3s.create.error")
 	s.ProcessFailedResponse("s3.delete.error", "s3s.delete.error")
 	s.ProcessFailedResponse("s3.update.error", "s3s.update.error")
-	/*
-		// Configure EBSs Hooks
-		s.ProcessRequest("ebss.create", "ebs.create")
-		s.ProcessRequest("ebss.delete", "ebs.delete")
-		s.ProcessRequest("ebss.update", "ebs.update")
 
-		s.ProcessSuccessResponse("ebs.create.done", "ebs.create", "ebss.create.done")
-		s.ProcessSuccessResponse("ebs.delete.done", "ebs.delete", "ebss.delete.done")
-		s.ProcessSuccessResponse("ebs.update.done", "ebs.update", "ebss.update.done")
+	// Configure EBSs Hooks
+	s.ProcessRequest("ebss.create", "ebs.create")
+	s.ProcessRequest("ebss.delete", "ebs.delete")
+	s.ProcessRequest("ebss.update", "ebs.update")
 
-		s.ProcessFailedResponse("ebs.create.error", "ebss.create.error")
-		s.ProcessFailedResponse("ebs.delete.error", "ebss.delete.error")
-		s.ProcessFailedResponse("ebs.update.error", "ebss.update.error")
+	s.ProcessSuccessResponse("ebs.create.done", "ebs.create", "ebss.create.done")
+	s.ProcessSuccessResponse("ebs.delete.done", "ebs.delete", "ebss.delete.done")
+	s.ProcessSuccessResponse("ebs.update.done", "ebs.update", "ebss.update.done")
 
-		// Configure RDSs Hooks
-		s.ProcessRequest("rdss.create", "rds.create")
-		s.ProcessRequest("rdss.delete", "rds.delete")
-		s.ProcessRequest("rdss.update", "rds.update")
+	s.ProcessFailedResponse("ebs.create.error", "ebss.create.error")
+	s.ProcessFailedResponse("ebs.delete.error", "ebss.delete.error")
+	s.ProcessFailedResponse("ebs.update.error", "ebss.update.error")
 
-		s.ProcessSuccessResponse("rds.create.done", "rds.create", "rdss.create.done")
-		s.ProcessSuccessResponse("rds.delete.done", "rds.delete", "rdss.delete.done")
-		s.ProcessSuccessResponse("rds.update.done", "rds.update", "rdss.update.done")
+	// Configure RDSs Hooks
+	s.ProcessRequest("rdss.create", "rds.create")
+	s.ProcessRequest("rdss.delete", "rds.delete")
+	s.ProcessRequest("rdss.update", "rds.update")
 
-		s.ProcessFailedResponse("rds.create.error", "rdss.create.error")
-		s.ProcessFailedResponse("rds.delete.error", "rdss.delete.error")
-		s.ProcessFailedResponse("rds.update.error", "rdss.update.error")
-	*/
+	s.ProcessSuccessResponse("rds.create.done", "rds.create", "rdss.create.done")
+	s.ProcessSuccessResponse("rds.delete.done", "rds.delete", "rdss.delete.done")
+	s.ProcessSuccessResponse("rds.update.done", "rds.update", "rdss.update.done")
+
+	s.ProcessFailedResponse("rds.create.error", "rdss.create.error")
+	s.ProcessFailedResponse("rds.delete.error", "rdss.delete.error")
+	s.ProcessFailedResponse("rds.update.error", "rdss.update.error")
+
 	// Configure Route53 Hooks
 	s.ProcessRequest("route53s.create", "route53.create")
 	s.ProcessRequest("route53s.delete", "route53.delete")
