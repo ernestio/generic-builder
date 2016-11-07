@@ -126,33 +126,32 @@ func main() {
 		s.ProcessFailedResponse("rds.create.error", "rdss.create.error")
 		s.ProcessFailedResponse("rds.delete.error", "rdss.delete.error")
 		s.ProcessFailedResponse("rds.update.error", "rdss.update.error")
-
-		// Configure Route53 Hooks
-		s.ProcessRequest("route53s.create", "route53.create")
-		s.ProcessRequest("route53s.delete", "route53.delete")
-		s.ProcessRequest("route53s.update", "route53.update")
-
-		s.ProcessSuccessResponse("route53.create.done", "route53.create", "route53s.create.done")
-		s.ProcessSuccessResponse("route53.delete.done", "route53.delete", "route53s.delete.done")
-		s.ProcessSuccessResponse("route53.update.done", "route53.update", "route53s.update.done")
-
-		s.ProcessFailedResponse("route53.create.error", "route53s.create.error")
-		s.ProcessFailedResponse("route53.delete.error", "route53s.delete.error")
-		s.ProcessFailedResponse("route53.update.error", "route53s.update.error")
-
-		// Configure ElasticSearches Hooks
-		s.ProcessRequest("elasticsearches.create", "elasticsearch.create")
-		s.ProcessRequest("elasticsearches.delete", "elasticsearch.delete")
-		s.ProcessRequest("elasticsearches.update", "elasticsearch.update")
-
-		s.ProcessSuccessResponse("elasticsearch.create.done", "elasticsearch.create", "elasticsearches.create.done")
-		s.ProcessSuccessResponse("elasticsearch.delete.done", "elasticsearch.delete", "elasticsearches.delete.done")
-		s.ProcessSuccessResponse("elasticsearch.update.done", "elasticsearch.update", "elasticsearches.update.done")
-
-		s.ProcessFailedResponse("elasticsearch.create.error", "elasticsearches.create.error")
-		s.ProcessFailedResponse("elasticsearch.delete.error", "elasticsearches.delete.error")
-		s.ProcessFailedResponse("elasticsearch.update.error", "elasticsearches.update.error")
 	*/
+	// Configure Route53 Hooks
+	s.ProcessRequest("route53s.create", "route53.create")
+	s.ProcessRequest("route53s.delete", "route53.delete")
+	s.ProcessRequest("route53s.update", "route53.update")
+
+	s.ProcessSuccessResponse("route53.create.done", "route53.create", "route53s.create.done")
+	s.ProcessSuccessResponse("route53.delete.done", "route53.delete", "route53s.delete.done")
+	s.ProcessSuccessResponse("route53.update.done", "route53.update", "route53s.update.done")
+
+	s.ProcessFailedResponse("route53.create.error", "route53s.create.error")
+	s.ProcessFailedResponse("route53.delete.error", "route53s.delete.error")
+	s.ProcessFailedResponse("route53.update.error", "route53s.update.error")
+
+	// Configure ElasticSearches Hooks
+	s.ProcessRequest("elasticsearches.create", "elasticsearch.create")
+	s.ProcessRequest("elasticsearches.delete", "elasticsearch.delete")
+	s.ProcessRequest("elasticsearches.update", "elasticsearch.update")
+
+	s.ProcessSuccessResponse("elasticsearch.create.done", "elasticsearch.create", "elasticsearches.create.done")
+	s.ProcessSuccessResponse("elasticsearch.delete.done", "elasticsearch.delete", "elasticsearches.delete.done")
+	s.ProcessSuccessResponse("elasticsearch.update.done", "elasticsearch.update", "elasticsearches.update.done")
+
+	s.ProcessFailedResponse("elasticsearch.create.error", "elasticsearches.create.error")
+	s.ProcessFailedResponse("elasticsearch.delete.error", "elasticsearches.delete.error")
+	s.ProcessFailedResponse("elasticsearch.update.error", "elasticsearches.update.error")
 
 	runtime.Goexit()
 }
