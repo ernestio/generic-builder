@@ -26,6 +26,16 @@ func main() {
 	s.ProcessFailedResponse("vpc.create.error", "vpcs.create.error")
 	s.ProcessFailedResponse("vpc.delete.error", "vpcs.delete.error")
 
+	// Configure Routers Hooks
+	s.ProcessRequest("routers.create", "router.create")
+	s.ProcessRequest("routers.delete", "router.delete")
+
+	s.ProcessSuccessResponse("router.create.done", "router.create", "routers.create.done")
+	s.ProcessSuccessResponse("router.delete.done", "router.delete", "routers.delete.done")
+
+	s.ProcessFailedResponse("router.create.error", "routers.create.error")
+	s.ProcessFailedResponse("router.delete.error", "routers.delete.error")
+
 	// Configure Networks Hooks
 	s.ProcessRequest("networks.create", "network.create")
 	s.ProcessRequest("networks.delete", "network.delete")
