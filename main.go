@@ -124,18 +124,31 @@ func main() {
 	s.ProcessFailedResponse("ebs.delete.error", "ebss.delete.error")
 	s.ProcessFailedResponse("ebs.update.error", "ebss.update.error")
 
-	// Configure RDSs Hooks
-	s.ProcessRequest("rdss.create", "rds.create")
-	s.ProcessRequest("rdss.delete", "rds.delete")
-	s.ProcessRequest("rdss.update", "rds.update")
+	// Configure RDS cluster Hooks
+	s.ProcessRequest("rds_clusters.create", "rds_cluster.create")
+	s.ProcessRequest("rds_clusters.delete", "rds_cluster.delete")
+	s.ProcessRequest("rds_clusters.update", "rds_cluster.update")
 
-	s.ProcessSuccessResponse("rds.create.done", "rds.create", "rdss.create.done")
-	s.ProcessSuccessResponse("rds.delete.done", "rds.delete", "rdss.delete.done")
-	s.ProcessSuccessResponse("rds.update.done", "rds.update", "rdss.update.done")
+	s.ProcessSuccessResponse("rds_cluster.create.done", "rds_cluster.create", "rds_clusters.create.done")
+	s.ProcessSuccessResponse("rds_cluster.delete.done", "rds_cluster.delete", "rds_clusters.delete.done")
+	s.ProcessSuccessResponse("rds_cluster.update.done", "rds_cluster.update", "rds_clusters.update.done")
 
-	s.ProcessFailedResponse("rds.create.error", "rdss.create.error")
-	s.ProcessFailedResponse("rds.delete.error", "rdss.delete.error")
-	s.ProcessFailedResponse("rds.update.error", "rdss.update.error")
+	s.ProcessFailedResponse("rds_cluster.create.error", "rds_clusters.create.error")
+	s.ProcessFailedResponse("rds_cluster.delete.error", "rds_clusters.delete.error")
+	s.ProcessFailedResponse("rds_cluster.update.error", "rds_clusters.update.error")
+
+	// Configure RDS instance Hooks
+	s.ProcessRequest("rds_instances.create", "rds_instance.create")
+	s.ProcessRequest("rds_instances.delete", "rds_instance.delete")
+	s.ProcessRequest("rds_instances.update", "rds_instance.update")
+
+	s.ProcessSuccessResponse("rds_instance.create.done", "rds_instance.create", "rds_instances.create.done")
+	s.ProcessSuccessResponse("rds_instance.delete.done", "rds_instance.delete", "rds_instances.delete.done")
+	s.ProcessSuccessResponse("rds_instance.update.done", "rds_instance.update", "rds_instances.update.done")
+
+	s.ProcessFailedResponse("rds_instance.create.error", "rds_instances.create.error")
+	s.ProcessFailedResponse("rds_instance.delete.error", "rds_instances.delete.error")
+	s.ProcessFailedResponse("rds_instance.update.error", "rds_instances.update.error")
 
 	// Configure Route53 Hooks
 	s.ProcessRequest("route53s.create", "route53.create")
