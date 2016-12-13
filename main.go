@@ -112,17 +112,17 @@ func main() {
 	s.ProcessFailedResponse("s3.update.error", "s3s.update.error")
 
 	// Configure EBSs Hooks
-	s.ProcessRequest("ebss.create", "ebs.create")
-	s.ProcessRequest("ebss.delete", "ebs.delete")
-	s.ProcessRequest("ebss.update", "ebs.update")
+	s.ProcessRequest("ebs_volumes.create", "ebs_volume.create")
+	s.ProcessRequest("ebs_volumes.delete", "ebs_volume.delete")
+	s.ProcessRequest("ebs_volumes.update", "ebs_volume.update")
 
-	s.ProcessSuccessResponse("ebs.create.done", "ebs.create", "ebss.create.done")
-	s.ProcessSuccessResponse("ebs.delete.done", "ebs.delete", "ebss.delete.done")
-	s.ProcessSuccessResponse("ebs.update.done", "ebs.update", "ebss.update.done")
+	s.ProcessSuccessResponse("ebs_volume.create.done", "ebs_volume.create", "ebs_volumes.create.done")
+	s.ProcessSuccessResponse("ebs_volume.delete.done", "ebs_volume.delete", "ebs_volumes.delete.done")
+	s.ProcessSuccessResponse("ebs_volume.update.done", "ebs_volume.update", "ebs_volumes.update.done")
 
-	s.ProcessFailedResponse("ebs.create.error", "ebss.create.error")
-	s.ProcessFailedResponse("ebs.delete.error", "ebss.delete.error")
-	s.ProcessFailedResponse("ebs.update.error", "ebss.update.error")
+	s.ProcessFailedResponse("ebs_volume.create.error", "ebs_volumes.create.error")
+	s.ProcessFailedResponse("ebs_volume.delete.error", "ebs_volumes.delete.error")
+	s.ProcessFailedResponse("ebs_volume.update.error", "ebs_volumes.update.error")
 
 	// Configure RDS cluster Hooks
 	s.ProcessRequest("rds_clusters.create", "rds_cluster.create")
